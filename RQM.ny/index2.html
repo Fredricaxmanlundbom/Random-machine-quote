@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <script>
+    const QUOTEBANK = [
+      {
+        quote: "Darkness cannot drive out darkness; only light can do that.",
+        author: "Jimi Hendrix"
+      }, {
+        quote: "Injustice anywhere is a threat to justice everywhere.",
+        author: "Prince"
+      }, {
+        quote: "I have decided to stick with love. Hate is too great a burden to bear.",
+        author: "Martin Luther King"
+      }, {
+        quote: "Faith is taking the first step even when you don’t see the whole staircase.",
+        author: "Martin Luther King"
+      }, {
+        quote: "Forgiveness is not an occasional act; it is a constant attitude.",
+        author: "My teacher"
+      }, {
+        quote: "Life's most persistent and urgent question is, 'What are you doing for others?",
+        author: "Myself"
+      }
+    ];
+
+    window.onload = init;
+    function init() {
+      generateQuote()
+  }
+
+  function generateQuote() {
+    let quoteSize = QUOTEBANK.length;
+    let randomIndex = Math.floor(Math.random() * quoteSize);
+    let randomQuoteData = QUOTEBANK [randomIndex];
+
+//Add the quote
+    let twitterlink = "https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text=%22I%20didn%E2%80%99t%20fail%20the%20test.%20I%20just%20found%20100%20ways%20to%20do%20it%20wrong.%22%20Benjamin%20Franklin"
+//Add quthor
+    twitterlink += "Benjamin%20Franklin"
+
+    document.getElementById("twitter-quote").href = twitterlink;
+    document.getElementById("text").innerText = randomQuoteData.quote;
+    document.getElementById("author").innerText = randomQuoteData.author;
+  }
+</script>
+
+  <style>
+*  {
+  font-size:2rem;
+}
+
+  </style>
+</head>
+
+  <body>
+  <wrapper id="quote-box">
+    <div id="text"></div>
+    <div id="author"></div>
+      <button id="new-quote" onClick="generateQuote();">New Quote</button>
+      <a href="https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text=%22I%20didn%E2%80%99t%20fail%20the%20test.%20I%20just%20found%20100%20ways%20to%20do%20it%20wrong.%22%20Benjamin%20Franklin" id="tweet-quote" target="_blank">Tweet Quote</a>
+</wrapper>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
